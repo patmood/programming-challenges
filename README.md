@@ -8,3 +8,6 @@ Userful for:
 * Honing skills
 * Practicing for interviews
 * Learning cool new techniques
+
+
+All directories contain my personal solutions or work in progress
