@@ -13,9 +13,11 @@ def fizzbuzz_check(number)
 end
 
 def fizzbuzz_count(times)
-  for i in (0..times)
-    puts fizzbuzz_check(i)
+  result = []
+  for i in (1..times)
+    result << fizzbuzz_check(i)
   end
+  result
 end
 
 def assert(condition)
@@ -30,6 +32,9 @@ assert (fizzbuzz_check(3) == "fizz")
 assert (fizzbuzz_check(5) == "buzz")
 assert (fizzbuzz_check(6) == "fizz")
 assert (fizzbuzz_check(15) == "fizzbuzz")
-# assert (fizzbuzz_count(1) == "1")
+assert (fizzbuzz_count(1) == [1])
+assert (fizzbuzz_count(3) == [1,2,"fizz"])
+assert (fizzbuzz_count(15) == [1,2,"fizz",4,"buzz","fizz",7,8,"fizz","buzz",11,"fizz",13,14,"fizzbuzz"])
+
 p "ok"
 
