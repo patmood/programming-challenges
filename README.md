@@ -1,5 +1,5 @@
 #Programming Challenges
-##This repo contains various challenges I've found and practiced
+###This repo contains various challenges I've found and practiced
 
 
 Userful for:

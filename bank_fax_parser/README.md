@@ -7,3 +7,5 @@ Covers:
 * Passing data into new formats
 * Checksums
 * Error checking
+
+Status: In progress
