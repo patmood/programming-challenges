@@ -33,6 +33,7 @@ def number_converter(string_digit_array)
     end
   end
   acct_number << " ERR" if acct_number.include?("?")
+  acct_number
 end
 
 def parser(input_array)
@@ -42,7 +43,7 @@ end
 
 
 
-input = File.open('input2.txt').readlines
+input = File.open('input.txt').readlines
 
 p parser(input)
 
