@@ -41,9 +41,25 @@ def parser(input_array)
   number_converter(string_digit_array)
 end
 
+def valid?(string)
 
+  # Checksum calculation:
+  # Account num [d9,d8,d7......d1]
+  # (d1+2*d2+3*d3 +..+9*d9) mod 11 = 0
+ 
+  sum = 0
+  0.upto(8) do |x|
+   sum += string[x].to_i*(9-x) 
+  end
+  if sum%11 == 0
+    true
+  else
+    false
+  end
+end
 
-input = File.open('input.txt').readlines
+input = File.open('input2.txt').readlines
 
-p parser(input)
-
+acct_num = parser(input)
+p acct_num
+p valid?(acct_num)
