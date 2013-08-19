@@ -32,7 +32,11 @@ def number_converter(string_digit_array)
       acct_number << DIGITS[digit]
     end
   end
-  acct_number << " ERR" if acct_number.include?("?")
+  if acct_number.include?("?")
+    acct_number << " ILL" 
+  elsif invalid?(acct_number)
+    acct_number << " ERR"
+  end
   acct_number
 end
 
@@ -41,7 +45,7 @@ def parser(input_array)
   number_converter(string_digit_array)
 end
 
-def valid?(string)
+def invalid?(string)
 
   # Checksum calculation:
   # Account num [d9,d8,d7......d1]
@@ -52,9 +56,9 @@ def valid?(string)
    sum += string[x].to_i*(9-x) 
   end
   if sum%11 == 0
-    true
-  else
     false
+  else
+    true
   end
 end
 
@@ -62,4 +66,4 @@ input = File.open('input2.txt').readlines
 
 acct_num = parser(input)
 p acct_num
-p valid?(acct_num)
+p invalid?("284957211") == true
