@@ -10,6 +10,11 @@ def fib(n)
 end
 
 #tests
-p fib(0) == 0
-p fib(1) == 1
+def assert(condition)
+  raise "Failed Test!" unless condition
+end
+
+assert(fib(0) == 0)
+assert(fib(1) == 1)
+p "All ok"
 
