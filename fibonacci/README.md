@@ -1,6 +1,6 @@
 # Fibonacci!
 
-Someone asked me to describe how to code a fibonacci sequence over the phone, so this is just some demo/practice code.
+Someone asked me to describe how to code a fibonacci sequence over the phone, so this is just some demo/practice code to refresh my memory.
 
 Sequence of fibonacci numbers is defined by:
 
