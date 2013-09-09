@@ -1,40 +1,26 @@
-function slowDouble(x, callback) {
+function slowDouble(x,callback){
   setTimeout(function() {
-    callback(2 * x)
+    callback(2*x)
   }, 500)
 }
 
-var count = 0
-var total = 0
+// slowDouble(5, function(result){
+//   console.log('The result is',result)
+// })
 
-function slowDoubleTenTimes(n, x,callback){
-  console.log("X is currently:",x)
-  if (n === 0){
+function slowDoubleTenTimes(x, callback, n) {
+  var n = n || 0
+  console.log("n:",n,"x:",x)
+  if (n === 10) {
     callback(x)
     return
   } else {
-    slowDouble(x, function(newx){
-      slowDoubleTenTimes(n-1,newx,callback)
+    slowDouble(x,function(doublex){
+      slowDoubleTenTimes(doublex,callback,n+1)
     })
   }
 }
 
-
-// I'm running this file with node for fun...
-
-if (!module.parent){
-
-  // slowDouble(5, function(result) {
-  //   console.log('The result is: ' + result);
-  // });
-
-  slowDoubleTenTimes(10,3, function(result){
-    console.log('The result of slowDoubleTenTimes is ' + result)
-  });
-
-  /*
-    yields the following:
-    > -> undefined
-    > The result of slowDoubleTenTimes is 3072
-    */
-}
+slowDoubleTenTimes(3, function(result){
+  console.log('The result of slowDoubleTenTimes is',result)
+})
