@@ -10,5 +10,5 @@ def pivot(array)
     running_sum += value
   end
 
-  "No index found"
+  -1
 end

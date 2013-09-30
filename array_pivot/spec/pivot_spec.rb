@@ -7,7 +7,7 @@ describe '#pivot' do
   end
 
   it 'doesnt find index for 2 elements' do
-    pivot([5,2]).should == "No index found"
+    pivot([5,2]).should == -1
   end
 
   it 'finds index for simple 3 element case' do
@@ -15,14 +15,21 @@ describe '#pivot' do
   end
 
   it 'no index for simple 3 element case' do
-    pivot([1,1,2]).should == "No index found"
+    pivot([1,1,2]).should == -1
   end
 
   it 'handles standard case' do
     pivot([1, 4, 6, 3, 2]).should == 2
   end
 
-  it 'handles no index' do
-    pivot([1, 4, 6, 3, 20]).should == "No index found"
+  it 'handles standard case' do
+    pivot([3, 4, 5, 1, 2]).should == -1
   end
+
+  it 'handles no index' do
+    pivot([1, 4, 6, 3, 20]).should == -1
+  end
+
+
+
 end
