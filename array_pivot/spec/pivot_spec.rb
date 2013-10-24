@@ -30,6 +30,16 @@ describe '#pivot' do
     pivot([1, 4, 6, 3, 20]).should == -1
   end
 
+  it 'handles multiple pivots' do
+    pivot([20, 0, 0, 0, 20]).should == 1
+  end
 
+  it 'handles end pivot' do
+    pivot([0, 0, 20, 0, 20]).should == 3
+  end
+
+  it 'no pivot in long array' do
+    pivot([0, 0, 1, 0, 20]).should == -1
+  end
 
 end

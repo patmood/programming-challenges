@@ -1,4 +1,5 @@
 def pivot(array)
+
   running_sum = 0
   sum = array.reduce(:+)
 
