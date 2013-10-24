@@ -29,7 +29,7 @@ def common_words(doc)
   words = word_array(doc)
   word_count = {}
   words.each do |word|
-    word_count[word] ? word_count[word] += 1 : word_count[word] = 1
+    word_count[word.downcase] ? word_count[word.downcase] += 1 : word_count[word.downcase] = 1
   end
   word_count.to_a.sort_by {|key, value| value}
 end
@@ -64,6 +64,6 @@ end
 p num_words(doc) == 495
 p letter_count(doc) == 2789
 p symbol_count(doc) == 111
-p top_common_words(doc) == [["in", 9], ["eget", 8], ["Sed", 7]]
+p top_common_words(doc) == [["sed", 11], ["in", 11], ["vestibulum", 8]]
 p common_letters(doc) == [["e", 301], ["i", 290], ["u", 246]]
-p single_use_words(doc)
+# p single_use_words(doc)
