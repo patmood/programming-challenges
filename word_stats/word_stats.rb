@@ -42,7 +42,7 @@ def common_letters(doc)
   letter_count = {}
   doc.each_char do |char|
     if char.match(/^[[:alpha:]]$/)
-      letter_count[char] ? letter_count[char] += 1 : letter_count[char] = 1
+      letter_count[char.downcase] ? letter_count[char.downcase] += 1 : letter_count[char.downcase] = 1
     end
   end
   letter_count.to_a.sort_by {|key, value| value}.reverse.slice(0,3)
@@ -59,11 +59,23 @@ def single_use_words(doc)
   single_words
 end
 
+def letters_not_used(doc)
+  unused = ('a'..'z').to_a
+  used = []
+  doc.each_char do |char|
+    if !used.include?(char.downcase)
+      used << char.downcase
+    end
+  end
+  unused-used
+end
+
 # Tests
 
 p num_words(doc) == 495
 p letter_count(doc) == 2789
 p symbol_count(doc) == 111
 p top_common_words(doc) == [["sed", 11], ["in", 11], ["vestibulum", 8]]
-p common_letters(doc) == [["e", 301], ["i", 290], ["u", 246]]
+p common_letters(doc) == [["e", 302], ["i", 292], ["u", 246]]
 # p single_use_words(doc)
+p letters_not_used(doc)
