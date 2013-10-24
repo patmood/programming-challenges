@@ -31,7 +31,11 @@ def common_words(doc)
   words.each do |word|
     word_count[word] ? word_count[word] += 1 : word_count[word] = 1
   end
-  word_count.to_a.sort_by {|key, value| value}.reverse.slice(0,3)
+  word_count.to_a.sort_by {|key, value| value}
+end
+
+def top_common_words(doc)
+  common_words(doc).reverse.slice(0,3)
 end
 
 def common_letters(doc)
@@ -44,9 +48,22 @@ def common_letters(doc)
   letter_count.to_a.sort_by {|key, value| value}.reverse.slice(0,3)
 end
 
-puts num_words(doc) == 495
-puts letter_count(doc) == 2789
-puts symbol_count(doc) == 111
-p common_words(doc)
-p common_letters(doc)
+def single_use_words(doc)
+  word_count = common_words(doc)
+  single_words = []
+  word_count.each do |pair|
+    if pair[1] == 1
+      single_words << pair[0]
+    end
+  end
+  single_words
+end
 
+# Tests
+
+p num_words(doc) == 495
+p letter_count(doc) == 2789
+p symbol_count(doc) == 111
+p top_common_words(doc) == [["in", 9], ["eget", 8], ["Sed", 7]]
+p common_letters(doc) == [["e", 301], ["i", 290], ["u", 246]]
+p single_use_words(doc)
