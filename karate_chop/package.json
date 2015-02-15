@@ -1,0 +1,14 @@
+{
+  "name": "karate_chop",
+  "version": "0.0.0",
+  "description": "http://codekata.com/kata/kata02-karate-chop/",
+  "main": "chop.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.0.3"
+  }
+}
